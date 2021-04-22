@@ -16,6 +16,10 @@ code {
     monospace;
 }
 
+.ballot {
+  margin-top: 50px;
+}
+
 .ballot .container {
   margin-top: 200px;
   display: flex;
@@ -79,6 +83,7 @@ code {
 }
 .ballot .container .categoryWrapper .category .categoryCard .awardsCard .select:hover {
   background-color: #34ac9c;
+  color: #cccccc;
 }
 .ballot .container .categoryWrapper .category .categoryCard .awardsCard .select span {
   display: block;
