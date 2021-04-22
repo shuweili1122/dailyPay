@@ -8,6 +8,7 @@ body {
   box-sizing: border-box;
   background-color: #0D2436;
   color: #fff;
+  font-family: 'Roboto';
 }
 
 code {
@@ -39,11 +40,24 @@ code {
 }
 .ballot .container .categoryWrapper .category .categoryCard .awardsCard {
   max-width: 30%;
-  margin-right: 5%;
-  border: 2px transparent;
+  margin-right: calc(5% - 6px);
+  border: 2px solid transparent;
 }
-.ballot .container .categoryWrapper .category .categoryCard .awardsCard:nth-child(3n) {
-  margin-right: 0;
+.ballot .container .categoryWrapper .category .categoryCard .awardsCard.selected {
+  border: 2px solid #099bb3;
+  color: #ccc;
+}
+@media screen and (min-width: 769px) {
+  .ballot .container .categoryWrapper .category .categoryCard .awardsCard:nth-child(3n) {
+    margin-right: 0;
+ }
+}
+@media screen and (max-width: 768px) {
+  .ballot .container .categoryWrapper .category .categoryCard .awardsCard {
+    max-width: 100%;
+    justify-content: center;
+    margin: auto;
+ }
 }
 .ballot .container .categoryWrapper .category .categoryCard .awardsCard picture {
   display: block;
@@ -58,8 +72,56 @@ code {
   cursor: pointer;
   background-color: #000;
 }
+.ballot .container .categoryWrapper .category .categoryCard .awardsCard .select:hover {
+  background-color: #34ac9c;
+}
 .ballot .container .categoryWrapper .category .categoryCard .awardsCard .select span {
   display: block;
   padding: 20px;
   border: 1px solid #000;
+}
+.ballot .submitBallot {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  opacity: 1;
+}
+.ballot .submitBallot.notAllowed {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.ballot .submitBallot span {
+  border: 1px solid #009b86;
+  padding: 10px;
+  background-color: #009b86;
+}
+.ballot .submitBallot span:hover {
+  background-color: #34ac9c;
+}
+.ballot .ballotModel {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+.ballot .ballotModel.hide {
+  display: none;
+}
+.ballot .ballotModel .modelContainer {
+  width: 500px;
+  height: 500px;
+  background-color: #fff;
+  color: #000;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.ballot .ballotModel .modelContainer .close {
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 5px;
 }

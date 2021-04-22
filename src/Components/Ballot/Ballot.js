@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../Api/Api';
 import AwardsContainer from './AwardsContainer';
+import SubmitBallot from './SubmitBallot';
+import BallotModel from './BallotModel';
 
 const Ballot = () => {
   const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
   const [selection, setSelection] = useState({});
+  const [showModel, setModel] = useState(false);
 
   useEffect(() => {
     api.getBallotData().then(ballotData => {
@@ -14,7 +17,7 @@ const Ballot = () => {
         setLoading(false);
       }
     });
-    console.log(selection);
+    console.log('showMosdel???',showModel);
   });
 
   return (
@@ -23,6 +26,8 @@ const Ballot = () => {
       {!loading &&
         <AwardsContainer data={data} loading={loading} selection={selection} setSelection={setSelection}/>
       }
+      <SubmitBallot selection={selection} setModel={setModel}/>
+      <BallotModel selection={selection} showModel={showModel} setModel={setModel}/>
     </div>
   )
 }

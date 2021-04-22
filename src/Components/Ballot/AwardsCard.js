@@ -1,10 +1,15 @@
 import React, { useEffect } from 'react';
 
 const AwardsCard = (props) => {
-  const category = props.category;
+  const handleClick = () => {
+    props.setSelection(prevState => ({
+      ...prevState,
+      [props.cartegory]: props.cardInfo.title
+    }));
+  }
 
   return (
-    <div className='awardsCard'>
+    <div className={`awardsCard ${props.selection[props.cartegory] ? props.selection[props.cartegory] === props.cardInfo.title ? 'selected' : '' : ''}`}>
       <div className='awardsCardTitle'>
         {props.cardInfo.title}
       </div>
@@ -12,10 +17,9 @@ const AwardsCard = (props) => {
         <img src={props.cardInfo.photoUrL} alt={props.cardInfo.title} />
       </picture>
       <div className='select'>
-        <span onClick={() => {props.setSelection(prevState => ({
-          ...prevState,
-          [props.cartegory]: props.cardInfo.title
-        }))}}>select</span>
+        <span onClick={() => {
+          handleClick();
+        }}>select</span>
       </div>
     </div>
   )
