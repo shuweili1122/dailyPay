@@ -9,7 +9,7 @@ const AwardsContainer = (props) => {
         props.data.items.map((each, idx) => {
           return (
             <div className='categoryWrapper' key={each.id}>
-              <AwardsCategory categoryInfo={each} selection={props.selection} setSelection={props.setSelection}/>
+              <AwardsCategory categoryInfo={each} selection={props.selection} setSelection={props.setSelection} width={props.width}/>
             </div>
           )
         })

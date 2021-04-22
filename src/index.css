@@ -38,6 +38,11 @@ code {
   max-width: 1440px;
   margin: auto;
 }
+@media screen and (max-width: 768px) {
+  .ballot .container .categoryWrapper .category .categoryCard {
+    display: block;
+ }
+}
 .ballot .container .categoryWrapper .category .categoryCard .awardsCard {
   max-width: 30%;
   margin-right: calc(5% - 6px);
@@ -118,6 +123,13 @@ code {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+@media screen and (max-width: 768px) {
+  .ballot .ballotModel .modelContainer {
+    max-width: 500px;
+    max-height: 500px;
+    width: 80vw;
+ }
 }
 .ballot .ballotModel .modelContainer .close {
   cursor: pointer;
